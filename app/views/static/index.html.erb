@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>The Gossip Project</title>
+</head>
+<body>
+
+    <h1 class="d-flex justify-content-center">Bienvenue Jeune Paparazzi</h1>
+    <h2 class="d-flex justify-content-center">Viens voir les bons potins</h2>
+
+    <div class="row">
+    <% @gossips.each_with_index do |gossip| %>
+      <div class="col-sm-6 text-center">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= gossip.title %></h5>
+            <p class="card-text"><%= gossip.user.first_name%> <%= gossip.user.last_name%></p>
+            <%= link_to "Read all the details", dynamic_show_gossip_path(:id => gossip.id), :class => "btn btn-primary"%>
+
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+</body>
+</html>
